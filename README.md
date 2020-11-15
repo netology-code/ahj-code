@@ -2,7 +2,7 @@
 
 ## Содержание
 
-* [x] [Рабочее окружение](/workspace)
+* [x] [Рабочее окружение](/env)
 * [ ] [DOM](/dom)
 * [ ] [Events](/events)
 * [ ] [Testing](/testing)
