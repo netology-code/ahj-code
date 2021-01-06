@@ -3,19 +3,17 @@
 ## Содержание
 
 * [x] [Рабочее окружение](/env)
-* [ ] [DOM](/dom)
-* [ ] [Events](/events)
-* [ ] [Testing](/testing)
-* [ ] [Forms](/forms)
-* [ ] [DnD](/dnd)
-* [ ] [HTTP](/http)
-* [ ] [SSE, WS](/sse-ws)
-* [ ] [Animations](/anim)
-* [ ] [Geolocation, Notification, Media](/geo)
-* [ ] [RxJS](/rxjs)
-* [ ] [Web Workers, Service Workers](/workers)
-
-По всем вопросам обращайтесь к @coursar.
+* [x] [DOM](/dom)
+* [x] [Events](/events)
+* [x] [Testing](/testing)
+* [x] [Forms](/forms)
+* [x] [DnD](/dnd)
+* [x] [HTTP](/http)
+* [x] [SSE, WS](/sse-ws)
+* [x] [Animations](/anim)
+* [x] [Geolocation, Notification, Media](/geo)
+* [x] [RxJS](/rxjs)
+* [x] [Web Workers, Service Workers](/workers)
 
 ## Как использовать
 

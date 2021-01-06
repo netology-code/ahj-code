@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div data-widget="filter-widget">
+    <form>
+        <label>Фильтр <input data-id="filter-text" name="filter-text" class="input"></label>
+        <button data-action="filter" class="btn">Ok</button>
+    </form>
+</div>
+
+<ul data-section="contact-list" class="contact-list">
+    <li data-contact data-contact-id="1" class="contact-list-item">
+        <div data-section="main" class="contact-main">
+            <img src="https://placeimg.com/40/40/people" class="contact-list-item-img" alt="">
+            <span class="contact-list-item-name">Иванов Александр</span>
+            <span class="contact-list-item-phone">+7960 077 00 00</span>
+            <a href="tel:+79600770000" data-phone="79600770000" data-action="call" class="contact-list-item-action">Звонок</a>
+        </div>
+        <div data-section="details" class="contact-details hidden">Подробная информация о клиенте</div>
+    </li>
+</ul>
+
+</body>
+</html>
