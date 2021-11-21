@@ -9,7 +9,7 @@
     "coverage": "jest --coverage",
     "test": "jest"
   },
-  "repository": "https://github.com/hek777/ahj-code.git",
+  "repository": "https://github.com/hek777/ahj-hw-1.git",
   "author": "Voinov Nikita <nikita-nikita2012@mail.ru>",
   "license": "MIT",
   "devDependencies": {
