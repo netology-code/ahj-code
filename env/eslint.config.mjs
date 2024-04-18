@@ -15,6 +15,9 @@ export default [
     },
   },
   {
+    ignores: ["dist/*"],
+  },
+  {
     files: ["**/*.test.js"],
     ...jest.configs["flat/recommended"],
     rules: {
