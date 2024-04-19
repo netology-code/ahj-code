@@ -1,54 +1,71 @@
 name: Netology AHJ
 
-on: [push, pull_request]
+on:
+  push:
 
-# Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  checks: write
-  contents: write
+  contents: read
   pages: write
   id-token: write
-  deployments: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
-  build:
+  eslint:
     runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.0
+          cache: 'yarn'
+      - run: yarn
+      - run: yarn lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.0
+          cache: 'yarn'
+      - run: yarn
+      - run: yarn test
+
+  build:
+    needs: [eslint, test]
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    strategy:
-      matrix:
-        node-version: [18.x]
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run linters
-        run: npm run lint
-
-      - name: Run test
-        run: npm run coverage
-
-      - name: Build
-        run: npm run build
-
+          node-version: 20.11.0
+          cache: 'yarn'
+      - run: yarn
+      - run: yarn build
       - name: Setup Pages
-        uses: actions/configure-pages@v2
-
+        uses: actions/configure-pages@v4
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
-
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
