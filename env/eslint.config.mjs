@@ -15,7 +15,7 @@ export default [
     },
   },
   {
-    ignores: ["dist/*"],
+    ignores: ["dist/*", "coverage/*"],
   },
   {
     files: ["**/*.test.js"],
@@ -23,6 +23,7 @@ export default [
     rules: {
       ...jest.configs["flat/recommended"].rules,
       "jest/prefer-expect-assertions": "off",
+      "jest/expect-expect": "error",
     },
   },
 ];
